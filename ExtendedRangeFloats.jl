@@ -36,6 +36,11 @@ function normalize(c :: Complex{ExtendedRangeFloat{F, I}}) :: Complex{ExtendedRa
     complex(normalize(real(c)), normalize(imag(c)))
 end
 
+# allows regular float types to be normalized
+function normalize(float :: AbstractFloat)
+    float
+end
+
 # arithematic 
 import Base.+
 function (+)(left :: ExtendedRangeFloat, right :: ExtendedRangeFloat) :: ExtendedRangeFloat
